@@ -1,29 +1,30 @@
 <?php
 require_once './vendor/autoload.php';
 
-use Eclair\Routing\Route;
-use Eclair\Routing\Middleware;
-use Eclair\Database\Adaptor;
+// 데이터베이스 연결
+// 세션을 켜는 일
+// 에러 핸들러 등록하기
+// 환경 설정하기
 
-Adaptor::setup('mysql:dbname=phpblog;host=localhost;port=3306;', 'root', '1234');
+use Eclair\Support\ServiceProvider;
+use Eclair\Application;
 
-class HelloMiddleware extends Middleware
+class SessionServiceProvider extends ServiceProvider
 {
-    public static function process()
+    public static function register()
     {
-        return true;
+        // session_set_save_handler
+    }
+
+    public static function boot()
+    {
+        session_start();
     }
 }
 
-Route::add('get', '/', function () {
-    echo "hello world";
-},[HelloMiddleware::class]);
 
-Route::add('get', '/posts/{id}', function ($id) {
-    if ($post = Adaptor::getAll('SELECT * FROM users WHERE `id` =?', [$id])) {
-        return var_dump($post);
-    }
-    return http_response_code(404);
-});
+$app = new Application([
+    SessionServiceProvider::class
+]);
 
-Route::run();
+$app->boot();
