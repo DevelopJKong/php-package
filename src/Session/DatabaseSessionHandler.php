@@ -6,17 +6,17 @@ use Eclair\Database\Adaptor;
 
 class DatabaseSessionHandler implements \SessionHandlerInterface
 {
-    public function open($savePath, $sessionName)
+    public function open($savePath, $sessionName):bool
     {
         return true;
     }
 
-    public function close()
+    public function close():bool
     {
         return true;
     }
 
-    public function read($id)
+    public function read($id):string|false
     {
         $data = current(Adaptor::getAll('SELECT * FROM sessions WHERE `id` = ?', [$id]));
 
@@ -28,17 +28,17 @@ class DatabaseSessionHandler implements \SessionHandlerInterface
         return $payload ?? '';
     }
 
-    public function write($id, $paylode)
+    public function write($id, $paylode):bool
     {
         return Adaptor::exec('UPDATE sessions SET `payload` = ? WHERE `id` = ?', [$paylode, $id]);
     }
 
-    public function destroy($id)
+    public function destroy($id):bool
     {
         return Adaptor::exec('DELETE FROM sessions WHERE `id` = ?', [$id]);
     }
 
-    public function gc($maxlifetime)
+    public function gc($maxlifetime):int|false
     {
         if($sessions = Adaptor::getAll('SELECT * FROM sessions')) {
             foreach ($sessions as $session) {
