@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="39141f03-7d7b-4f0c-8cd5-3f04594f5dfc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Application.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Session/DatabaseSessionHandler.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Support/ServiceProvider.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Support/Theme.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +62,7 @@
       <option name="presentableId" value="Default" />
       <updated>1653204221169</updated>
       <workItem from="1653204222398" duration="65000" />
-      <workItem from="1653204366228" duration="11359000" />
+      <workItem from="1653204366228" duration="11453000" />
     </task>
     <servers />
   </component>
