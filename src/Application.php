@@ -17,6 +17,4 @@ class Application
     {
         array_walk($this->provider, fn ($provider) => $provider::boot());
     }
-
-
 }
